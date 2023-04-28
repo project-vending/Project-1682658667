@@ -1,0 +1,30 @@
+python
+import csv
+import os
+
+# define path to data directory and product data file
+data_dir = 'data'
+product_data_file = 'product_data.csv'
+product_data_path = os.path.join(data_dir, product_data_file)
+
+# sample data
+headers = ['product_id', 'product_name', 'description', 'category']
+data = [
+    ['p001', 'Product 1', 'Product 1 description', 'Category 1'],
+    ['p002', 'Product 2', 'Product 2 description', 'Category 2'],
+    ['p003', 'Product 3', 'Product 3 description', 'Category 1'],
+    ['p004', 'Product 4', 'Product 4 description', 'Category 2'],
+    ['p005', 'Product 5', 'Product 5 description', 'Category 1'],
+]
+
+# write data to the file
+with open(product_data_path, 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(headers)
+    writer.writerows(data)
+    
+# verify the file contents
+with open(product_data_path, 'r') as csvfile:
+    reader = csv.reader(csvfile)
+    for row in reader:
+        print(row)
