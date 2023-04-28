@@ -1,0 +1,11 @@
+
+import csv
+
+filename = 'purchase_data.csv'
+header = ['user_id', 'product_id', 'purchase_date', 'purchase_amount']
+
+with open(f'data/{filename}', mode='w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(header)
+    # add data rows here, e.g.
+    writer.writerow(['1', '101', '2022-02-28', '19.99'])
