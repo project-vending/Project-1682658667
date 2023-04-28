@@ -1,0 +1,22 @@
+python
+import csv
+
+file_path = 'data/user_data.csv'
+
+# CSV column header
+header = ['user_id', 'age', 'gender', 'location']
+
+# sample user data
+users = [
+    {'user_id': 'u001', 'age': 32, 'gender': 'M', 'location': 'New York'},
+    {'user_id': 'u002', 'age': 25, 'gender': 'F', 'location': 'Los Angeles'},
+    {'user_id': 'u003', 'age': 45, 'gender': 'M', 'location': 'Chicago'},
+    {'user_id': 'u004', 'age': 38, 'gender': 'F', 'location': 'Miami'},
+]
+
+# write CSV file
+with open(file_path, 'w', newline='') as csvfile:
+    writer = csv.DictWriter(csvfile, fieldnames=header)
+    writer.writeheader()
+    for user in users:
+        writer.writerow(user)
